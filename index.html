@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interaktive Raumbeispiele</title>
+  
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  
+  <style>
+    body, html { margin: 0; padding: 0; height: 100%; font-family: sans-serif; }
+    #map { height: 100vh; width: 100%; }
+  </style>
+</head>
+<body>
+
+  <div id="map"></div>
+
+  <!-- Leaflet JavaScript -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    // Weltkarte zentrieren
+    const map = L.map('map').setView([20, 0], 2);
+
+    // Freie OpenStreetMap-Kacheln einbinden
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap-Mitwirkende',
+      maxZoom: 18
+    }).addTo(map);
+
+    // Erstes Test-Raumbeispiel als Marker
+    L.marker([63.63, -19.62]).addTo(map)
+      .bindPopup('<b>Eyjafjallajökull (Island)</b><br>Beispiel für Vulkanismus und endogene Dynamik.');
+  </script>
+</body>
+</html>
